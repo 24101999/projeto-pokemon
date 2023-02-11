@@ -12,6 +12,7 @@
         <p>Special defense: {{ SpecialDefense }}</p>
         <p>Speed: {{ speed }}</p>
       </div>
+      <button style="cursor: pointer" @click="home()">Voltar</button>
     </div>
   </div>
   <!-- <p>{{ dados[param].url }}</p> -->
@@ -38,6 +39,9 @@ export default {
     };
   },
   methods: {
+    home() {
+      this.$router.push("/");
+    },
     get() {
       axios.get("https://pokeapi.co/api/v2/pokemon?limit=25").then((res) => {
         this.dados = res.data.results;
